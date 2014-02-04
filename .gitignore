@@ -2,3 +2,9 @@
 *.pot
 *.pyc
 local_settings.py
+<<<<<<< HEAD
+#virtualenv
+venv/
+=======
+#/mysite
+>>>>>>> cdf0e413b9e93e551ec2901105e9a45a7a655c7f
