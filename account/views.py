@@ -6,12 +6,14 @@ from django.contrib.auth import logout as auth_logout
 
 from social.backends.google import GooglePlusAuth
 
+from social.backends.facebook import FacebookOAuth2
+
 def home(request):
 	""" Home view, display login mechanism """
 	if request.user.is_authenticated():
 		return redirect('done')
 	return render_to_response('home.html', {
-		'plus_id': getattr(settings, 'SOCIAL_AUTH_GOOGLE_PLUS_KEY', None)
+		'appId': getattr(settings, 'SOCIAL_AUTH_FACEBOOK_KEY', None)
 		}, RequestContext(request))
 
 def logout(request):
@@ -22,9 +24,8 @@ def logout(request):
 @login_required
 def done(request):
 	""" Login complete view, displays user data """
-	scope = ' '.join(GooglePlusAuth.DEFAULT_SCOPE)
+	scope = ' '.join(FacebookOAuth2.DEFAULT_SCOPE)
 	return render_to_response('done.html', {
 		'user' : request.user,
-		'plus_id' : getattr(settings, 'SOCIAL_AUTH_GOOGLE_PLUS_KEY', None),
-		'plus_scope' : scope
+		'appId' : getattr(settings, 'SOCIAL_AUTH_FACEBOOK_KEY', None)
 		}, RequestContext(request))

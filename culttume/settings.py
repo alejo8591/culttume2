@@ -169,24 +169,24 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'social.apps.django_app.context_processors.backends',
 )
 
-SOCIAL_AUTH_ENABLED_BACKENDS = ('facebook',)
-SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
+#SOCIAL_AUTH_ENABLED_BACKENDS = ('facebook',)
+#SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
 
-SOCIAL_AUTH_GOOGLE_PLUS_KEY = 'AIzaSyBS5iaJc0xRzq7kdnSn8zi3VZ1g_ALXb3U'
+SOCIAL_AUTH_FACEBOOK_KEY = '1405572559682582'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'a4c9aa1d22c92c82c4580742b6b3ff4e'
+
+#SOCIAL_AUTH_GOOGLE_PLUS_KEY = 'AIzaSyBS5iaJc0xRzq7kdnSn8zi3VZ1g_ALXb3U'
 SOCIAL_AUTH_STRATEGY = 'social.strategies.django_strategy.DjangoStrategy'
 SOCIAL_AUTH_STORAGE = 'social.apps.django_app.default.models.DjangoStorage'
-SOCIAL_AUTH_GOOGLE_OAUTH_SCOPE = [
-    'https://www.googleapis.com/auth/drive',
-    'https://www.googleapis.com/auth/userinfo.profile'
-]
+#SOCIAL_AUTH_GOOGLE_OAUTH_SCOPE = [
+#    'https://www.googleapis.com/auth/drive',
+#    'https://www.googleapis.com/auth/userinfo.profile'
+#]
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/done/'
 URL_PATH = ''
 LOGIN_ERROR_URL = '/login-error/'
-
-FACEBOOK_APP_ID              = '1405572559682582'
-FACEBOOK_API_SECRET          = 'a4c9aa1d22c92c82c4580742b6b3ff4e'
 
 SOCIAL_AUTH_PIPELINE = (
     'social.pipeline.social_auth.social_details',
@@ -194,7 +194,7 @@ SOCIAL_AUTH_PIPELINE = (
     'social.pipeline.social_auth.auth_allowed',
     'social.pipeline.social_auth.social_user',
     'social.pipeline.user.get_username',
-    'example.app.pipeline.require_email',
+    #'example.app.pipeline.require_email',
     'social.pipeline.mail.mail_validation',
     'social.pipeline.user.create_user',
     'social.pipeline.social_auth.associate_user',
@@ -203,6 +203,6 @@ SOCIAL_AUTH_PIPELINE = (
 )
 
 try:
-    from example.local_settings import *
+    from culttume2.local_settings import *
 except ImportError:
     pass
