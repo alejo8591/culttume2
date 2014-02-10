@@ -3,6 +3,10 @@
 
 {% block content %}
 
+<br />
+<a href='{% url social:begin "facebook" %}'>Login with Facebook</a>
+<br />
+
 {% if plus_id %}
 <form id="google-plus" method="post" action="{% url 'social:complete' 'google-plus' %}">{% csrf_token %}
   <input id="at" type="hidden" name="access_token" value="" />
