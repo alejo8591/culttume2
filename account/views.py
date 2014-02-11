@@ -4,8 +4,6 @@ from django.shortcuts import redirect, render_to_response
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout as auth_logout
 
-from social.backends.google import GooglePlusAuth
-
 from social.backends.facebook import FacebookOAuth2
 
 def home(request):

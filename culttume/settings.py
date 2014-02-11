@@ -169,6 +169,20 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'social.apps.django_app.context_processors.backends',
 )
 
+SOCIAL_AUTH_PIPELINE = (
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+    'social.pipeline.user.get_username',
+    #'example.app.pipeline.require_email',
+    'social.pipeline.mail.mail_validation',
+    'social.pipeline.user.create_user',
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details'
+)
+
 #SOCIAL_AUTH_ENABLED_BACKENDS = ('facebook',)
 #SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
 
@@ -188,19 +202,7 @@ LOGIN_REDIRECT_URL = '/done/'
 URL_PATH = ''
 LOGIN_ERROR_URL = '/login-error/'
 
-SOCIAL_AUTH_PIPELINE = (
-    'social.pipeline.social_auth.social_details',
-    'social.pipeline.social_auth.social_uid',
-    'social.pipeline.social_auth.auth_allowed',
-    'social.pipeline.social_auth.social_user',
-    'social.pipeline.user.get_username',
-    #'example.app.pipeline.require_email',
-    'social.pipeline.mail.mail_validation',
-    'social.pipeline.user.create_user',
-    'social.pipeline.social_auth.associate_user',
-    'social.pipeline.social_auth.load_extra_data',
-    'social.pipeline.user.user_details'
-)
+FACEBOOK_EXTENDED_PERMISSIONS = ['email']
 
 try:
     from culttume2.local_settings import *
