@@ -19,12 +19,12 @@ def home(request):
 def logout(request):
 	""" Logs out User """
 	auth_logout(request)
-	return render_to_response('home', {}, RequestContext(request))
+	return render_to_response('home.html', {}, RequestContext(request))
 
 @login_required
 def done(request):
 	""" Login complete view, displays user data """
-	scope = ' '.join(FacebookOAuth2.DEFAULT_SCOPE)
 	return render_to_response('done.html', {
-		'appId' : getattr(settings, 'SOCIAL_AUTH_FACEBOOK_KEY', None),
+		'user': request.user,
+		'appId' : getattr(settings, 'SOCIAL_AUTH_FACEBOOK_KEY', None)
 		}, RequestContext(request))

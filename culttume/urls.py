@@ -13,6 +13,6 @@ urlpatterns = patterns('',
     url(r'^$', 'account.views.home'),
     url(r'^login/$', 'account.views.home'),
     url(r'^logout/$', 'account.views.logout'),
-    url(r'^done/$', 'account.views.home', name='done'),
+    url(r'^done/$', 'account.views.done', name='done'),
     url(r'', include('social.apps.django_app.urls', namespace='social')),
 )
