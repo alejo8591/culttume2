@@ -45,7 +45,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social.apps.django_app.default',
-    'account',
+    'accounts',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -182,6 +182,7 @@ SOCIAL_AUTH_PIPELINE = (
     'social.pipeline.social_auth.load_extra_data',
     'social.pipeline.user.user_details'
 )
+AUTH_PROFILE_MODULE = 'accounts.UserProfile'
 
 #SOCIAL_AUTH_ENABLED_BACKENDS = ('facebook',)
 #SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
