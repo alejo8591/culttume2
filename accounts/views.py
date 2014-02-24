@@ -14,6 +14,10 @@ def home(request):
 		'appId': getattr(settings, 'SOCIAL_AUTH_FACEBOOK_KEY', None)
 		}, RequestContext(request))
 
+def register(request):
+	""" Register for email """
+	return render_to_response('login/register.html', {}, RequestContext(request))
+	
 def logout(request):
 	""" Logs out User """
 	auth_logout(request)
@@ -22,7 +26,7 @@ def logout(request):
 @login_required
 def done(request):
 	""" Login complete view, displays user data """
-	return render_to_response('done.html', {
+	return render_to_response('login/done.html', {
 		'user': request.user,
 		'appId' : getattr(settings, 'SOCIAL_AUTH_FACEBOOK_KEY', None)
 		}, RequestContext(request))
