@@ -18,7 +18,9 @@ def home(request):
 def register(request):
 	""" Register for email """
 	form = UserCreateForm()
-	if request.method == 'POST':
+	if request.user.is_authenticated():
+		return redirect('done')
+	elif request.method == 'POST':
 		form = UserCreateForm(request.POST)
 		if form.is_valid():
 			form.save()
