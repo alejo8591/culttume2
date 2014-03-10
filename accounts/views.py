@@ -15,6 +15,10 @@ def home(request):
 		'appId': getattr(settings, 'SOCIAL_AUTH_FACEBOOK_KEY', None)
 		}, RequestContext(request))
 
+def login(request):
+	""" Login view, for email user auth """
+	pass
+
 def register(request):
 	""" Register for email """
 	form = UserCreateForm()
@@ -24,7 +28,7 @@ def register(request):
 		form = UserCreateForm(request.POST)
 		if form.is_valid():
 			form.save()
-			return redirect('done')
+			return render_to_response('done')
 	return render_to_response('login/register.html', {'form': form}, RequestContext(request))
 	
 def logout(request):

@@ -7,7 +7,7 @@ class UsersProfile(models.Model):
 	user = models.OneToOneField(User, related_name='profile', unique=True)
 	user_url = models.CharField(max_length=24)
 
-	def __str__(self):
+	def __unicode__(self):
 		return "%s Profile" % self.user
 
 def create_user_profile(sender, instance, created, **kwargs):
