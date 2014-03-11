@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 from django.db import models
 
 # Category Models.
@@ -16,8 +17,8 @@ class Category(models.Model):
 	updated_at =  models.DateTimeField(auto_now=True)
 
 	class Meta:
-		db_tables = 'categories'
-		ordening = ['-created_at']
+		db_table = 'categories'
+		ordering = ['-created_at']
 		verbose_name_plural = 'Categories'
 
 	def __unicode__(self):
@@ -28,7 +29,7 @@ class Category(models.Model):
 		return('catalog_category', (), {'category_slug' : self.slug})
 
 # Product Models
-class Product(mdoels.Model):
+class Product(models.Model):
 	name = models.CharField(max_length=255, unique=True)
 	slug = models.SlugField(max_length=255, unique=True, help_text='Meta Keywords comma-delimited set of SEO Keywords')
 	brand = models.CharField(max_length=255)
@@ -41,14 +42,14 @@ class Product(mdoels.Model):
 	is_bestseller = models.BooleanField(default=False)
 	quantity = models.IntegerField()
 	description = models.TextField()
-    tag_keywords = models.CharField(max_length=255, help_text='Meta Keywords comma-delimited set of SEO Keywords')
-    created_at = models.DateTimeField(auto_now_add=True)
+	tag_keywords = models.CharField(max_length=255, help_text='Meta Keywords comma-delimited set of SEO Keywords')
+	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at =  models.DateTimeField(auto_now=True)
-	categories = models.ManyToManyField(Category)
+	categorie_product = models.ManyToManyField(Category)
 
 	class Meta:
-		db_tables = 'products'
-		ordening = ['-created_at']
+		db_table = 'products'
+		ordering = ['-created_at']
 		verbose_name_plural = 'Categories'
 
 	def __unicode__(self):

@@ -8,23 +8,23 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'UsersProfile'
-        db.create_table(u'accounts_usersprofile', (
+        # Adding model 'UserProfile'
+        db.create_table(u'accounts_userprofile', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('user', self.gf('django.db.models.fields.related.OneToOneField')(related_name='profile', unique=True, to=orm['auth.User'])),
             ('user_url', self.gf('django.db.models.fields.CharField')(max_length=24)),
         ))
-        db.send_create_signal(u'accounts', ['UsersProfile'])
+        db.send_create_signal(u'accounts', ['UserProfile'])
 
 
     def backwards(self, orm):
-        # Deleting model 'UsersProfile'
-        db.delete_table(u'accounts_usersprofile')
+        # Deleting model 'UserProfile'
+        db.delete_table(u'accounts_userprofile')
 
 
     models = {
-        u'accounts.usersprofile': {
-            'Meta': {'object_name': 'UsersProfile'},
+        u'accounts.userprofile': {
+            'Meta': {'object_name': 'UserProfile'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'user': ('django.db.models.fields.related.OneToOneField', [], {'related_name': "'profile'", 'unique': 'True', 'to': u"orm['auth.User']"}),
             'user_url': ('django.db.models.fields.CharField', [], {'max_length': '24'})
